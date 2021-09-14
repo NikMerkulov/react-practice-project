@@ -1,10 +1,10 @@
 import './App.css'
-import Registration from './components/Registration/Registration'
+import SignIn from './components/SignIn/SignIn'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Registration />
+      <SignIn />
     </div>
   )
 }
