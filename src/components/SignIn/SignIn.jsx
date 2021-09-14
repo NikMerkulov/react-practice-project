@@ -25,7 +25,7 @@ const SignIn = () => {
       top: '50%',
       transform: 'translateY(-50%)',
       borderRadius: '15px',
-      boxShadow: [0, 4, 96, 'rgba(10, 9, 75, 0.21)']
+      boxShadow: '0 4px 96px rgba(10, 9, 75, 0.21)'
     },
     form: {
       display: 'flex',
