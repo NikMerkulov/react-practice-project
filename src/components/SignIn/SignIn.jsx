@@ -1,20 +1,8 @@
-import { createTheme, ThemeProvider, Container, Button, TextField, Typography, IconButton, InputAdornment, Stack, Paper } from '@mui/material'
+import { Container, Button, TextField, Typography, IconButton, InputAdornment, Stack, Paper } from '@mui/material'
 import { useForm} from 'react-hook-form'
 import { Box } from '@mui/system'
 import { Visibility, VisibilityOff, PersonOutline, EmailOutlined, LockOutlined } from '@mui/icons-material'
 import { useState } from 'react'
-
-const theme = createTheme({
-  components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          padding: '8px 16px'
-        }
-      }
-    }
-  }
-})
 
 const SignIn = () => {
   const [visibility, setVisibility] = useState(false)
@@ -55,103 +43,101 @@ const SignIn = () => {
         </Typography>    
       </Box>
       <form onSubmit={handleSubmit(onSubmit)} sx={styles.form} width='100%'>
-        <ThemeProvider theme={theme}>
-          <Stack direction='column' spacing={4} sx={{ width: '100%', padding: '40px 50px', boxSizing: 'border-box'}}>
-            <Paper elevation={3}>
-              <TextField
-                {...register('firstName')} 
-                type='text'
-                name='firstName'
-                label='Имя'
-                variant='standard'
-                autoComplete='given-name'
-                fullWidth
-                InputProps={{
-                  startAdornment: <PersonOutline/>
-                }}
-              />
-            </Paper>
-            <Paper elevation={3}>
-              <TextField
-                {...register('lastName')} 
-                type='text'
-                name='lastName'
-                label='Фамилия'
-                variant='standard'
-                autoComplete='family-name'
-                fullWidth
-                InputProps={{
-                  startAdornment: <PersonOutline />
-                }}
-              />
-            </Paper>
-            <Paper elevation={3}>
-              <TextField
-                {...register('email')} 
-                type='email'
-                name='email'
-                label='Email'
-                variant='standard'
-                autoComplete='email'
-                fullWidth
-                InputProps={{
-                  startAdornment: <EmailOutlined />
-                }}
-              />
-            </Paper>
-            <Paper elevation={3}>
-              <TextField
-                {...register('password')} 
-                type={visibility ? 'text' : 'password'}
-                name='password'
-                label='Пароль'
-                variant='standard'
-                fullWidth
-                InputProps={{
-                  startAdornment: <LockOutlined />,
-                  endAdornment: 
-                    <InputAdornment position='end'>
-                      <IconButton
-                        aria-label='toggle password visibility'
-                        edge='start' 
-                        onClick={() => setVisibility(visibility => !visibility)}
-                      >
-                        {visibility ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                }}
-              />
-            </Paper>
-            <Paper elevation={3}>
-              <TextField
-                {...register('repeatPassword')} 
-                type={visibility ? 'text' : 'password'}
-                name='repeatPassword'
-                label='Повторите пароль'
-                variant='standard'
-                fullWidth
-                InputProps={{
-                  startAdornment: <LockOutlined />,
-                  endAdornment: 
-                    <InputAdornment position='end'>
-                      <IconButton
-                        aria-label='toggle password visibility'
-                        edge='start' 
-                        onClick={() => setVisibility(visibility => !visibility)}
-                      >
-                        {visibility ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                }}
-              />
-            </Paper>
-            <Button variant='contained' disableElevation type='submit' fullWidth sx={{ height: 60 }}>
-              <Typography variant='p' fontSize={20} >
-                Зарегистрироваться
-              </Typography>
-            </Button>
-          </Stack>
-        </ThemeProvider>
+        <Stack direction='column' spacing={4} sx={{ width: '100%', padding: '40px 50px', boxSizing: 'border-box'}}>
+          <Paper elevation={3}>
+            <TextField
+              {...register('firstName')} 
+              type='text'
+              name='firstName'
+              label='Имя'
+              variant='standard'
+              autoComplete='given-name'
+              fullWidth
+              InputProps={{
+                startAdornment: <PersonOutline/>
+              }}
+            />
+          </Paper>
+          <Paper elevation={3}>
+            <TextField
+              {...register('lastName')} 
+              type='text'
+              name='lastName'
+              label='Фамилия'
+              variant='standard'
+              autoComplete='family-name'
+              fullWidth
+              InputProps={{
+                startAdornment: <PersonOutline />
+              }}
+            />
+          </Paper>
+          <Paper elevation={3}>
+            <TextField
+              {...register('email')} 
+              type='email'
+              name='email'
+              label='Email'
+              variant='standard'
+              autoComplete='email'
+              fullWidth
+              InputProps={{
+                startAdornment: <EmailOutlined />
+              }}
+            />
+          </Paper>
+          <Paper elevation={3}>
+            <TextField
+              {...register('password')} 
+              type={visibility ? 'text' : 'password'}
+              name='password'
+              label='Пароль'
+              variant='standard'
+              fullWidth
+              InputProps={{
+                startAdornment: <LockOutlined />,
+                endAdornment: 
+                  <InputAdornment position='end'>
+                    <IconButton
+                      aria-label='toggle password visibility'
+                      edge='start' 
+                      onClick={() => setVisibility(visibility => !visibility)}
+                    >
+                      {visibility ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+              }}
+            />
+          </Paper>
+          <Paper elevation={3}>
+            <TextField
+              {...register('repeatPassword')} 
+              type={visibility ? 'text' : 'password'}
+              name='repeatPassword'
+              label='Повторите пароль'
+              variant='standard'
+              fullWidth
+              InputProps={{
+                startAdornment: <LockOutlined />,
+                endAdornment: 
+                  <InputAdornment position='end'>
+                    <IconButton
+                      aria-label='toggle password visibility'
+                      edge='start' 
+                      onClick={() => setVisibility(visibility => !visibility)}
+                    >
+                      {visibility ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+              }}
+            />
+          </Paper>
+          <Button variant='contained' disableElevation type='submit' fullWidth sx={{ height: 60 }}>
+            <Typography variant='p' fontSize={20} >
+              Зарегистрироваться
+            </Typography>
+          </Button>
+        </Stack>
       </form>
     </Container>
   )
