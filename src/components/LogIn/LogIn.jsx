@@ -4,8 +4,7 @@ import { Box } from "@mui/system"
 import { useForm } from 'react-hook-form'
 import { Visibility, VisibilityOff, EmailOutlined, LockOutlined } from '@mui/icons-material'
 import { useState } from 'react'
-import { Switch, Route, Link as RouterLink } from 'react-router-dom'
-import SignIn from '../SignIn/SignIn'
+import { Link as RouterLink } from 'react-router-dom'
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm()
@@ -87,14 +86,6 @@ const LogIn = () => {
           <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
               <Link component={RouterLink} to='/PasswordRecovery'>Забыли пароль?</Link>
               <Link component={RouterLink} to='/SignIn'>Регистрация</Link>
-              <Switch>
-                <Route path='/PasswordRecovery'>
-                  <Typography>Forgot password</Typography>
-                </Route>
-                <Route path='/signin'>
-                  <SignIn />
-                </Route>
-              </Switch>
           </Box>
         </Stack>
       </form>
