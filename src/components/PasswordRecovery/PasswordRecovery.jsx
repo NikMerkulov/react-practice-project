@@ -17,9 +17,6 @@ const PasswordRecovery = () => {
       background: '#FFF',
       boxShadow: '0px 4px 96px rgba(10, 9, 75, 0.21)',
       borderRadius: '15px',
-      position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)'
     },
     header: {
       background: 'linear-gradient(90.01deg, #2A8BF2 0.01%, #0A6CD6 99.99%)',

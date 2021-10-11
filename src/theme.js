@@ -30,6 +30,18 @@ const theme = createTheme({
           padding: '8px 16px'
         }
       }
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'underlined' },
+          style: {
+            textTransform: 'none',
+            fontSize: 18,
+            textDecoration: 'underline'
+          },
+        },
+      ]
     }
   }
 })

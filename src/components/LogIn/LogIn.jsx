@@ -1,23 +1,26 @@
 import loginImage from '../../assets/images/login.png'
-import { Link, Container, Avatar, Stack, TextField, Button, Typography, Paper, InputAdornment, IconButton } from "@mui/material"
+import { Container, Avatar, Stack, TextField, Button, Typography, Paper, InputAdornment, IconButton } from "@mui/material"
 import { Box } from "@mui/system"
 import { useForm } from 'react-hook-form'
 import { Visibility, VisibilityOff, EmailOutlined, LockOutlined } from '@mui/icons-material'
 import { useState } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import useModal from '../../Hooks/useModal'
+import Modal from '../Modal/Modal'
+import SignIn from '../SignIn/SignIn'
+import PasswordRecovery from '../PasswordRecovery/PasswordRecovery'
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm()
   const [visibility, setVisibility] = useState(false)
+  const [displaySignIn, switchSignInDisplay] = useModal()
+  const [displayPasswordRecovery, switchdPasswordRecoveryDisplay] = useModal()
   const IMAGE_SIZE = '200px'
   const styles = {
     container: {
       background: '#FFF',
       boxShadow: '0px 4px 96px rgba(10, 9, 75, 0.21)',
       borderRadius: '15px',
-      position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)'
+      width: 1000
     },
     header: {
       background: 'linear-gradient(90.01deg, #2A8BF2 0.01%, #0A6CD6 99.99%)',
@@ -84,8 +87,22 @@ const LogIn = () => {
             </Typography>
           </Button>
           <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
-              <Link component={RouterLink} to='/PasswordRecovery'>Забыли пароль?</Link>
-              <Link component={RouterLink} to='/SignIn'>Регистрация</Link>
+            <Button variant='text' onClick={switchdPasswordRecoveryDisplay}>
+              <Typography variant='underlined'>
+                Забыли пароль?
+              </Typography>
+            </Button>
+            <Modal isShowing={displayPasswordRecovery} switchDisplay={switchdPasswordRecoveryDisplay}>
+              <PasswordRecovery />
+            </Modal>
+            <Button variant='text' onClick={switchSignInDisplay}>
+              <Typography variant='underlined'>
+                Регистрация
+              </Typography>
+            </Button>
+            <Modal isShowing={displaySignIn} switchDisplay={switchSignInDisplay}>
+              <SignIn />
+            </Modal>
           </Box>
         </Stack>
       </form>

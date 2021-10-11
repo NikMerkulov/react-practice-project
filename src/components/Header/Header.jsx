@@ -1,7 +1,12 @@
 import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material'
 import { Menu } from '@mui/icons-material'
+import LogIn from '../LogIn/LogIn'
+import useModal from '../../Hooks/useModal'
+import Modal from '../Modal/Modal'
 
 const ButtonAppBar = () => {
+  const [loginDisplay, switchLoginDisplay] = useModal()
+
   return (
     <AppBar position="static">
       <Toolbar >
@@ -17,11 +22,14 @@ const ButtonAppBar = () => {
         <Typography variant="h6" component="div">
           Happy Little React App
         </Typography>
-        <Button href='/login' color="inherit" sx={{ ml: 'auto' }}>
+        <Button onClick={switchLoginDisplay} color="inherit" sx={{ ml: 'auto' }}>
           <Typography variant='p' fontSize={18}>
             Войти
           </Typography>
         </Button>
+        <Modal isShowing={loginDisplay} switchDisplay={switchLoginDisplay}>
+          <LogIn />
+        </Modal>
       </Toolbar>
     </AppBar>
   )

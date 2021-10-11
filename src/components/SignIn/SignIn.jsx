@@ -6,14 +6,12 @@ import { useState } from 'react'
 
 const SignIn = () => {
   const [visibility, setVisibility] = useState(false)
+
   const styles = {
     container: {
-      position: 'absolute',
       backgroundColor: '#FFF',
-      top: '50%',
-      transform: 'translateY(-50%)',
       borderRadius: '15px',
-      boxShadow: '0 4px 96px rgba(10, 9, 75, 0.21)'
+      width: 1000
     },
     form: {
       display: 'flex',
