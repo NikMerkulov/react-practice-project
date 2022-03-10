@@ -47,7 +47,7 @@ const LogIn = () => {
           <Paper elevation={3}>
             <TextField 
               {...register('email')}
-              name='Email'
+              name='email'
               type='email'
               label='Email'
               variant='standard'
